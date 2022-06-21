@@ -14,7 +14,11 @@ public class Main {
                                 .limit(20)
                                 .collect(Collectors.toList());
         System.out.println(test4);
-        List<Integer> result = Task5.zip(Stream.of(1,2,3,4,5,6,7),Stream.of(1,2,3,4,5,6,7,8,9,10))
+//        Stream<Integer> first = Stream.of(1,2,3,4,5,6,7);
+//        Stream<Integer> second = Stream.of(1,2,3,4,5,6,7,8,9,10);
+        Stream<String> first = Stream.of("a","b");
+        Stream<String> second = Stream.of("c","d","e");
+        List<String> result = Task5.zip(first,second)
                 .collect(Collectors.toList());
         System.out.println(result);
     }

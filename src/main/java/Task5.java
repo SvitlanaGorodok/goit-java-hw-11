@@ -1,14 +1,15 @@
 import java.util.Iterator;
+import java.util.Random;
 import java.util.stream.Stream;
 
 public class Task5 {
-    public static Stream<Integer> zip(Stream<Integer> first, Stream<Integer> second){
-        Iterator<Integer> firstElements = first.iterator();
-        Iterator<Integer> secondElements = second.iterator();
-        Stream<Integer> result = Stream.empty();
+    public static <T> Stream<T> zip(Stream<T> first, Stream<T> second){
+        Iterator<T> firstElements = first.iterator();
+        Iterator<T> secondElements = second.iterator();
+        Stream<T> result = Stream.empty();
+        Random r = new Random();
         while (firstElements.hasNext() && secondElements.hasNext()){
-            result = Stream.concat(result, Stream.of(firstElements.next()));
-            result = Stream.concat(result, Stream.of(secondElements.next()));
+            result = Stream.concat(result, Stream.of(firstElements.next(),secondElements.next()));
         }
         return result;
     }
